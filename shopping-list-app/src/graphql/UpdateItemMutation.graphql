@@ -1,0 +1,12 @@
+mutation UpdateItemMutation($shoppingItemID: ID!, $quantity: Int!) {
+  updateItemFromShoppingList(shoppingItemID: $shoppingItemID, quantity: $quantity) {
+    id
+    quantity
+    totalPrice
+    inventoryItem {
+      id
+      name
+      price
+    }
+  }
+}

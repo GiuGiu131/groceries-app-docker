@@ -1,0 +1,19 @@
+query ShoppingListScreenQuery {
+  shoppingItems {
+    id
+    quantity
+    totalPrice
+    inventoryItem {
+      id
+      name
+      category
+      price
+    }
+  }
+  availableItems {
+    id
+    name
+    category
+    price
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "get-graphql-schema": "^2.1.2"
+  },
+  "scripts": {
+    "get-schema": "get-graphql-schema http://host.docker.internal:8000/ > schema.graphql"
+  }
+}

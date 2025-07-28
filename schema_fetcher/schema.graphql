@@ -1,0 +1,29 @@
+interface Node {
+  id: ID!
+}
+
+type InventoryItem implements Node {
+  id: ID!
+  name: String!
+  category: String
+  price: Float
+}
+
+type ShoppingItem implements Node {
+  id: ID!
+  inventoryItem: InventoryItem!
+  quantity: Int
+  totalPrice: Float
+}
+
+type Query {
+  node(id: ID!): Node
+  shoppingItems: [ShoppingItem!]
+  availableItems: [InventoryItem!]
+}
+
+type Mutation {
+  addItemToShoppingList(inventoryItemID: ID!, quantity: Int!): ShoppingItem
+  updateItemFromShoppingList(shoppingItemID: ID!, quantity: Int!): ShoppingItem
+  deleteItemFromShoppingList(shoppingItemID: ID!): Boolean
+}
