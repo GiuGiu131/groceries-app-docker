@@ -5,6 +5,7 @@ import { BottomTabBar, createBottomTabNavigator } from "@react-navigation/bottom
 
 import HomeScreen from "../screens/HomeScreen";
 import AccountScreen from "../screens/AccountScreen";
+import ShoppingListScreen from "../screens/ShoppingListScreen";
 
 const BottomNavigation: FC = () => {
   const WIDTH: number = 25;
@@ -40,6 +41,7 @@ const BottomNavigation: FC = () => {
       }}
     >
       <BottomTabNavigator.Screen name="Home" listeners={tabBarListeners} component={HomeScreen} />
+      <BottomTabNavigator.Screen name="Shopping List" listeners={tabBarListeners} component={ShoppingListScreen} />
 
       <BottomTabNavigator.Screen
         options={{

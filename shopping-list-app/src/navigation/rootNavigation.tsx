@@ -26,6 +26,7 @@ const LoginStack: FC = () => {
           gestureEnabled: false
         }}
       ></Stack.Screen>
+      <Stack.Screen name="ShoppingListScreen" component={BottomNavigation} />
       <Stack.Screen name="AccountScreen" component={BottomNavigation} />
     </Stack.Navigator>
   );
