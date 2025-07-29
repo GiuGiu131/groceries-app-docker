@@ -1,10 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import GlobalStyles from "../styles/GlobalStyles";
 
 const HomeScreen = () => {
+  const insets = useSafeAreaInsets();
   return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
+    // <SafeAreaView>
+    <View style={[GlobalStyles.homeContainer, { flex: 1, paddingTop: insets.top }]}>
+      <View style={styles.container}>
+        <Text>Home Screen</Text>
+      </View>
     </View>
   );
 };

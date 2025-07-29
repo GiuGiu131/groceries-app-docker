@@ -1,21 +1,23 @@
 import React from "react";
-import { SafeAreaView, Text } from "react-native";
+import { Text } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import { RelayEnvironmentProvider } from "react-relay/hooks";
 import { environment as RelayEnvironment } from "./src/relay/RelayEnvironment";
-import ShoppingListScreen from "./src/screens/ShoppingListScreen";
-import GlobalStyles from "./src/styles/GlobalStyles";
+
 import MainNavigation from "./src/navigation/rootNavigation";
 
-// import "./src/styles.css";
+import "@fontsource/poppins/300.css";
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
 
 export default function App() {
   return (
-    //  <SafeAreaView>
     <RelayEnvironmentProvider environment={RelayEnvironment}>
-      <Text>Home</Text>
-      <MainNavigation />
-      {/* <ShoppingListScreen /> */}
+      <SafeAreaProvider>
+        <Text>Home</Text>
+        <MainNavigation />
+      </SafeAreaProvider>
     </RelayEnvironmentProvider>
-    //  </SafeAreaView>
   );
 }

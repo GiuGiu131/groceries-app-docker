@@ -46,6 +46,9 @@ const BottomNavigation: FC = () => {
       <BottomTabNavigator.Screen
         options={{
           tabBarShowLabel: true
+          // tabBarIcon: ({ color, size }) => {
+          //   return <SvgUri width={WIDTH} height={HEIGHT} uri="../../assets/svgs/home-menu-icon.svg" />;
+          // }
         }}
         name="Account"
         listeners={tabBarListeners}
@@ -56,12 +59,8 @@ const BottomNavigation: FC = () => {
 };
 
 const styles = StyleSheet.create({
-  wrapperStyle: {
-    // Define your styles here
-  },
-  bottomTabStyles: {
-    // Define your styles here
-  }
+  wrapperStyle: {},
+  bottomTabStyles: {}
 });
 
 export default BottomNavigation;

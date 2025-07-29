@@ -2,8 +2,6 @@ import React, { FC } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { CardStyleInterpolators, createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
 import BottomNavigation from "./bottomNavigation";
-// import SplashScreen from '../screens/SplashScreen';
-// import StackFullScreen from '../screens/StackFullScreen';
 
 const Stack = createStackNavigator();
 
@@ -16,8 +14,6 @@ const LoginStack: FC = () => {
         } as StackNavigationOptions
       }
     >
-      {/* <Stack.Screen name="Splash" component={SplashScreen} /> */}
-      {/* <Stack.Screen name="FullScreen" component={StackFullScreen} /> */}
       <Stack.Screen
         name="HomeScreen"
         component={BottomNavigation}
@@ -26,7 +22,7 @@ const LoginStack: FC = () => {
           gestureEnabled: false
         }}
       ></Stack.Screen>
-      <Stack.Screen name="ShoppingListScreen" component={BottomNavigation} />
+      <Stack.Screen name="ShoppingList" component={BottomNavigation} />
       <Stack.Screen name="AccountScreen" component={BottomNavigation} />
     </Stack.Navigator>
   );
