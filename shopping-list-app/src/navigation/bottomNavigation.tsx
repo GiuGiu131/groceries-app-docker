@@ -7,6 +7,10 @@ import HomeScreen from "../screens/HomeScreen";
 import AccountScreen from "../screens/AccountScreen";
 import ShoppingListScreen from "../screens/ShoppingListScreen";
 
+import HomeIcon from "../../assets/svgs/home-menu-icon.svg";
+import AccountIcon from "../../assets/svgs/account-menu-item.svg";
+import ShoppingListIcon from "../../assets/svgs/shopping-list-menu-icon.svg";
+
 const BottomNavigation: FC = () => {
   const WIDTH: number = 25;
   const HEIGHT: number = 25;
@@ -25,30 +29,50 @@ const BottomNavigation: FC = () => {
         </View>
       )}
       screenOptions={{
-        tabBarActiveTintColor: "#000000",
-        tabBarInactiveTintColor: "#767676",
+        // tabBarActiveTintColor: "#000000",
+        // tabBarInactiveTintColor: "#767676",
         tabBarStyle: {
-          backgroundColor: "#fff",
-          borderTopWidth: 0,
-          elevation: 0,
-          paddingTop: 10,
-          height: Platform.OS === "android" ? 65 : undefined
-        },
-        tabBarLabelStyle: {
-          fontFamily: "Arial",
-          fontSize: 11
+          backgroundColor: "#FCF7EB",
+          //   borderTopWidth: 0,
+          //   elevation: 0,
+          paddingTop: 10
+          //   height: Platform.OS === "android" ? 65 : undefined
         }
+        // tabBarLabelStyle: {
+        //   fontFamily: "Arial",
+        //   fontSize: 11
+        // }
       }}
     >
-      <BottomTabNavigator.Screen name="Home" listeners={tabBarListeners} component={HomeScreen} />
-      <BottomTabNavigator.Screen name="Shopping List" listeners={tabBarListeners} component={ShoppingListScreen} />
+      <BottomTabNavigator.Screen
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color, size }) => {
+            return <HomeIcon width={WIDTH} height={HEIGHT} />;
+          }
+        }}
+        name="Ingredients"
+        listeners={tabBarListeners}
+        component={HomeScreen}
+      />
+      <BottomTabNavigator.Screen
+        options={{
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color, size }) => {
+            return <ShoppingListIcon width={WIDTH} height={HEIGHT} />;
+          }
+        }}
+        name="Shopping List"
+        listeners={tabBarListeners}
+        component={ShoppingListScreen}
+      />
 
       <BottomTabNavigator.Screen
         options={{
-          tabBarShowLabel: true
-          // tabBarIcon: ({ color, size }) => {
-          //   return <SvgUri width={WIDTH} height={HEIGHT} uri="../../assets/svgs/home-menu-icon.svg" />;
-          // }
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color, size }) => {
+            return <AccountIcon width={WIDTH} height={HEIGHT} />;
+          }
         }}
         name="Account"
         listeners={tabBarListeners}

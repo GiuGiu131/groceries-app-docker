@@ -10,6 +10,7 @@ const HomeScreen = () => {
     <View style={[GlobalStyles.homeContainer, { flex: 1, paddingTop: insets.top }]}>
       <View style={styles.container}>
         <Text>Home Screen</Text>
+   
       </View>
     </View>
   );

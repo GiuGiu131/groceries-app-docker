@@ -1,7 +1,9 @@
 import React, { FC } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { CardStyleInterpolators, createStackNavigator, StackNavigationOptions } from "@react-navigation/stack";
+import { Image } from "react-native";
 import BottomNavigation from "./bottomNavigation";
+import Logo from "../../assets/logo.svg";
 
 const Stack = createStackNavigator();
 
@@ -10,7 +12,7 @@ const LoginStack: FC = () => {
     <Stack.Navigator
       screenOptions={
         {
-          headerShown: false
+          headerShown: true
         } as StackNavigationOptions
       }
     >
@@ -18,8 +20,12 @@ const LoginStack: FC = () => {
         name="HomeScreen"
         component={BottomNavigation}
         options={{
-          cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter,
-          gestureEnabled: false
+          headerTitle: props => <Logo width={100} height={100} />,
+          headerStyle: {
+            backgroundColor: "#FCF7EB"
+          }
+          // cardStyleInterpolator: CardStyleInterpolators.forFadeFromCenter
+          // gestureEnabled: false
         }}
       ></Stack.Screen>
       <Stack.Screen name="ShoppingList" component={BottomNavigation} />
