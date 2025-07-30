@@ -10,6 +10,9 @@ import ShoppingListScreen from "../screens/ShoppingListScreen";
 import HomeIcon from "../../assets/svgs/home-menu-icon.svg";
 import AccountIcon from "../../assets/svgs/account-menu-item.svg";
 import ShoppingListIcon from "../../assets/svgs/shopping-list-menu-icon.svg";
+import HomeIconActive from "../../assets/svgs/home-menu-icon-active.svg";
+import AccountIconActive from "../../assets/svgs/account-menu-item-active.svg";
+import ShoppingListIconActive from "../../assets/svgs/shopping-list-menu-icon-active.svg";
 
 const BottomNavigation: FC = () => {
   const WIDTH: number = 25;
@@ -47,8 +50,8 @@ const BottomNavigation: FC = () => {
       <BottomTabNavigator.Screen
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({ color, size }) => {
-            return <HomeIcon width={WIDTH} height={HEIGHT} />;
+          tabBarIcon: ({ focused }) => {
+            return focused ? <HomeIconActive width={WIDTH} height={HEIGHT} /> : <HomeIcon width={WIDTH} height={HEIGHT} />;
           }
         }}
         name="Ingredients"
@@ -58,8 +61,8 @@ const BottomNavigation: FC = () => {
       <BottomTabNavigator.Screen
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({ color, size }) => {
-            return <ShoppingListIcon width={WIDTH} height={HEIGHT} />;
+          tabBarIcon: ({ focused }) => {
+            return focused ? <ShoppingListIconActive width={WIDTH} height={HEIGHT} /> : <ShoppingListIcon width={WIDTH} height={HEIGHT} />;
           }
         }}
         name="Shopping List"
@@ -70,8 +73,8 @@ const BottomNavigation: FC = () => {
       <BottomTabNavigator.Screen
         options={{
           tabBarShowLabel: false,
-          tabBarIcon: ({ color, size }) => {
-            return <AccountIcon width={WIDTH} height={HEIGHT} />;
+          tabBarIcon: ({ focused }) => {
+            return focused ? <AccountIconActive width={WIDTH} height={HEIGHT} /> : <AccountIcon width={WIDTH} height={HEIGHT} />;
           }
         }}
         name="Account"
