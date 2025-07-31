@@ -54,6 +54,8 @@ const ShoppingListItem: React.FC<Props> = ({ item, updateItem, deleteItem }) => 
               style={[ShoppingListStyles.qtyBtnWrapper, quantity === 0 && { opacity: 0.4 }]}
               onPress={() => {
                 if (quantity - 1 === 0) {
+                  // Set quantity to 0 in state/store
+                  updateItem(item.id, 0);
                   setShowDeletePrompt(true);
                 } else {
                   updateItem(item.id, quantity - 1);
