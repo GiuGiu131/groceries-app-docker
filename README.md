@@ -36,3 +36,29 @@ mutation {
 When using Relay etc, it wants to generate queries etc based off a a GraphQL schema. This can be done programmatically from the API, see [this](https://graphql.org/learn/introspection/) if you're interested.
 
 If make any changes to the API, run `docker exec --tty LP_ShoppingList_SchemaFetcher npm run get-schema`, you'll see a refreshed schema.graphql in the schema_fetcher folder.
+
+# Running the project
+
+Run
+
+```bash
+`docker compose up`
+```
+
+to start the containers.
+
+In the root directory, run
+
+```bash
+npx relay-compiler
+```
+
+to start the API and the schema fetcher.
+
+In the shopping-list-app directory, run
+
+```bash
+npx expo start
+```
+
+to start the React Native app.
