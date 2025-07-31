@@ -8,16 +8,9 @@ const AccountScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <Text style={styles.header}>My Account</Text>
-
       <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
-        {/* Profile Section */}
         <View style={styles.profileSection}>
-          <Image
-            source={{ uri: "https://via.placeholder.com/80" }} // Replace with actual profile pic
-            style={styles.profileImage}
-          />
+          <Image source={{ uri: "https://via.placeholder.com/80" }} style={styles.profileImage} />
           <View>
             <Text style={styles.profileName}>John Doe</Text>
             <Text style={styles.profileEmail}>john.doe@example.com</Text>
@@ -42,18 +35,18 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     paddingTop: 40,
-    backgroundColor: "#FAF7EF" // soft warm background, matching ingredient screen vibe
+    backgroundColor: "#FAF7EF"
   },
   header: {
     fontSize: 28,
     fontWeight: "700",
-    color: "#1C2E44", // dark blueish for strong header
+    color: "#1C2E44",
     marginBottom: 30
   },
   profileSection: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#F5EFD9", // light cream card background
+    backgroundColor: "#F5EFD9",
     padding: 20,
     borderRadius: 12,
     marginBottom: 25,
@@ -61,7 +54,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.05,
     shadowOffset: { width: 0, height: 3 },
     shadowRadius: 8,
-    elevation: 4 // Android shadow
+    elevation: 4
   },
   profileImage: {
     width: 80,
