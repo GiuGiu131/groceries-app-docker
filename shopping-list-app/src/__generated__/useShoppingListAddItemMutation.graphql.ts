@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<cb95b7bc56f4519d3149bd2904b0f968>>
+ * @generated SignedSource<<df73812bef68ee53e88fe1a10f97dca3>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,12 +9,12 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from 'relay-runtime';
-export type ShoppingListScreenUpdateItemMutation$variables = {
+export type useShoppingListAddItemMutation$variables = {
+  inventoryItemID: string;
   quantity: number;
-  shoppingItemID: string;
 };
-export type ShoppingListScreenUpdateItemMutation$data = {
-  readonly updateItemFromShoppingList: {
+export type useShoppingListAddItemMutation$data = {
+  readonly addItemToShoppingList: {
     readonly id: string;
     readonly inventoryItem: {
       readonly category: string | null | undefined;
@@ -26,50 +26,52 @@ export type ShoppingListScreenUpdateItemMutation$data = {
     readonly totalPrice: number | null | undefined;
   } | null | undefined;
 };
-export type ShoppingListScreenUpdateItemMutation = {
-  response: ShoppingListScreenUpdateItemMutation$data;
-  variables: ShoppingListScreenUpdateItemMutation$variables;
+export type useShoppingListAddItemMutation = {
+  response: useShoppingListAddItemMutation$data;
+  variables: useShoppingListAddItemMutation$variables;
 };
 
 const node: ConcreteRequest = (function(){
-var v0 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "quantity"
-},
+var v0 = [
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "inventoryItemID"
+  },
+  {
+    "defaultValue": null,
+    "kind": "LocalArgument",
+    "name": "quantity"
+  }
+],
 v1 = {
-  "defaultValue": null,
-  "kind": "LocalArgument",
-  "name": "shoppingItemID"
-},
-v2 = {
   "alias": null,
   "args": null,
   "kind": "ScalarField",
   "name": "id",
   "storageKey": null
 },
-v3 = [
+v2 = [
   {
     "alias": null,
     "args": [
       {
         "kind": "Variable",
-        "name": "quantity",
-        "variableName": "quantity"
+        "name": "inventoryItemID",
+        "variableName": "inventoryItemID"
       },
       {
         "kind": "Variable",
-        "name": "shoppingItemID",
-        "variableName": "shoppingItemID"
+        "name": "quantity",
+        "variableName": "quantity"
       }
     ],
     "concreteType": "ShoppingItem",
     "kind": "LinkedField",
-    "name": "updateItemFromShoppingList",
+    "name": "addItemToShoppingList",
     "plural": false,
     "selections": [
-      (v2/*: any*/),
+      (v1/*: any*/),
       {
         "alias": null,
         "args": null,
@@ -92,7 +94,7 @@ v3 = [
         "name": "inventoryItem",
         "plural": false,
         "selections": [
-          (v2/*: any*/),
+          (v1/*: any*/),
           {
             "alias": null,
             "args": null,
@@ -104,14 +106,14 @@ v3 = [
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "category",
+            "name": "price",
             "storageKey": null
           },
           {
             "alias": null,
             "args": null,
             "kind": "ScalarField",
-            "name": "price",
+            "name": "category",
             "storageKey": null
           }
         ],
@@ -123,38 +125,32 @@ v3 = [
 ];
 return {
   "fragment": {
-    "argumentDefinitions": [
-      (v0/*: any*/),
-      (v1/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ShoppingListScreenUpdateItemMutation",
-    "selections": (v3/*: any*/),
+    "name": "useShoppingListAddItemMutation",
+    "selections": (v2/*: any*/),
     "type": "Mutation",
     "abstractKey": null
   },
   "kind": "Request",
   "operation": {
-    "argumentDefinitions": [
-      (v1/*: any*/),
-      (v0/*: any*/)
-    ],
+    "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ShoppingListScreenUpdateItemMutation",
-    "selections": (v3/*: any*/)
+    "name": "useShoppingListAddItemMutation",
+    "selections": (v2/*: any*/)
   },
   "params": {
-    "cacheID": "ac1a09a6a861e6139c83f07c5fa2ad33",
+    "cacheID": "d85630818e9b6189f01fe054d3cf9ac1",
     "id": null,
     "metadata": {},
-    "name": "ShoppingListScreenUpdateItemMutation",
+    "name": "useShoppingListAddItemMutation",
     "operationKind": "mutation",
-    "text": "mutation ShoppingListScreenUpdateItemMutation(\n  $shoppingItemID: ID!\n  $quantity: Int!\n) {\n  updateItemFromShoppingList(shoppingItemID: $shoppingItemID, quantity: $quantity) {\n    id\n    quantity\n    totalPrice\n    inventoryItem {\n      id\n      name\n      category\n      price\n    }\n  }\n}\n"
+    "text": "mutation useShoppingListAddItemMutation(\n  $inventoryItemID: ID!\n  $quantity: Int!\n) {\n  addItemToShoppingList(inventoryItemID: $inventoryItemID, quantity: $quantity) {\n    id\n    quantity\n    totalPrice\n    inventoryItem {\n      id\n      name\n      price\n      category\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "26887e582a12e83367929e55404149ca";
+(node as any).hash = "c2e9f7bf1538cc44eb01ea604b859f1d";
 
 export default node;

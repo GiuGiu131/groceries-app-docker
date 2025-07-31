@@ -1,40 +1,33 @@
 import { TextStyle, Platform } from "react-native";
 
 type FontSize = "fontSizeBase" | "fontSizeLg" | "fontSizeSm" | "fontSizeXs";
-export const fontSizes: Record<FontSize, TextStyle> = {
-  fontSizeBase: { fontSize: 16 },
-  fontSizeLg: { fontSize: 20 },
-  fontSizeSm: { fontSize: 14 },
-  fontSizeXs: { fontSize: 12 }
+
+export const fontSizes: Record<FontSize, number> = {
+  fontSizeBase: 16,
+  fontSizeLg: 20,
+  fontSizeSm: 14,
+  fontSizeXs: 10
 };
 
-type FontWeight = "fontWeightLight" | "fontWeightNormal" | "fontWeightBold";
+type FontWeight = "normal" | "bold" | "semibold" | "light" | "medium";
 export const fontWeights: Record<FontWeight, TextStyle> = {
-  fontWeightLight: {
-    fontWeight: "300"
-  },
-  fontWeightNormal: {
-    fontWeight: "400"
-  },
-  fontWeightBold: {
-    fontWeight: "700"
-  }
+  normal: { fontWeight: "400" },
+  light: { fontWeight: "300" },
+  medium: { fontWeight: "500" },
+  semibold: { fontWeight: "600" },
+  bold: { fontWeight: "700" }
 };
 
-type LineHeight = "lineHeightBase" | "lineHeightSm" | "lineHeightLg";
-export const lineHeights: Record<LineHeight, TextStyle> = {
-  lineHeightBase: {
-    lineHeight: 24
-  },
-  lineHeightSm: {
-    lineHeight: 20
-  },
-  lineHeightLg: {
-    lineHeight: 28
-  }
+type LineHeight = "base" | "sm" | "xs" | "lg";
+
+export const lineHeights: Record<LineHeight, number> = {
+  base: 24,
+  xs: 18,
+  sm: 20,
+  lg: 28
 };
 
-const fontFamilyBase = "Poppins";
+export const fontFamilyBase = "Poppins";
 
 export const fontFamilies: Record<string, TextStyle> = {
   fontFamilyBase: {
@@ -43,6 +36,7 @@ export const fontFamilies: Record<string, TextStyle> = {
 };
 
 export const typography = {
+  fontFamilyBase,
   fontSizes,
   fontWeights,
   lineHeights,

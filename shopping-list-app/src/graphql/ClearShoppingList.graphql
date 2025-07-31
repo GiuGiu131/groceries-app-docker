@@ -1,0 +1,5 @@
+mutation useShoppingListClearAllItemsMutation {
+  clearShoppingList {
+    success
+  }
+}

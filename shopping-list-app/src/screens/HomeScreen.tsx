@@ -1,27 +1,17 @@
-import React from "react";
-import { SafeAreaProvider, useSafeAreaInsets } from "react-native-safe-area-context";
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import GlobalStyles from "../styles/GlobalStyles";
+import React, { useState } from "react";
+import { View } from "react-native";
+import IngredientsList from "../components/ingredients/IngredientsList";
+import { useShoppingList } from "../hooks/useShoppingList";
 
 const HomeScreen = () => {
-  const insets = useSafeAreaInsets();
+  const { addItem, data: shoppingData } = useShoppingList();
+  const [selectedItemId, setSelectedItemId] = useState<string | null>(null);
+
   return (
-    // <SafeAreaView>
-    <View style={[GlobalStyles.homeContainer, { flex: 1, paddingTop: insets.top }]}>
-      <View style={styles.container}>
-        <Text>Home Screen</Text>
-   
-      </View>
+    <View style={{ flex: 1 }}>
+      <IngredientsList selectedItemId={selectedItemId} setSelectedItemId={setSelectedItemId} shoppingData={shoppingData} addItem={addItem} />
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
-});
 
 export default HomeScreen;

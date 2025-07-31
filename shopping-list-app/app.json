@@ -6,7 +6,7 @@
     "main": "expo-router/entry",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/logo.svg",
+    "icon": "./assets/logo-app.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {

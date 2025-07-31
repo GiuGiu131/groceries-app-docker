@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<f1479e8dee1340baee813f7a68e7af0a>>
+ * @generated SignedSource<<aff4c2c73903e38780bc1abded487e90>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,15 +9,15 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from 'relay-runtime';
-export type ShoppingListScreenDeleteItemMutation$variables = {
+export type useShoppingListDeleteItemMutation$variables = {
   shoppingItemID: string;
 };
-export type ShoppingListScreenDeleteItemMutation$data = {
+export type useShoppingListDeleteItemMutation$data = {
   readonly deleteItemFromShoppingList: boolean | null | undefined;
 };
-export type ShoppingListScreenDeleteItemMutation = {
-  response: ShoppingListScreenDeleteItemMutation$data;
-  variables: ShoppingListScreenDeleteItemMutation$variables;
+export type useShoppingListDeleteItemMutation = {
+  response: useShoppingListDeleteItemMutation$data;
+  variables: useShoppingListDeleteItemMutation$variables;
 };
 
 const node: ConcreteRequest = (function(){
@@ -48,7 +48,7 @@ return {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Fragment",
     "metadata": null,
-    "name": "ShoppingListScreenDeleteItemMutation",
+    "name": "useShoppingListDeleteItemMutation",
     "selections": (v1/*: any*/),
     "type": "Mutation",
     "abstractKey": null
@@ -57,20 +57,20 @@ return {
   "operation": {
     "argumentDefinitions": (v0/*: any*/),
     "kind": "Operation",
-    "name": "ShoppingListScreenDeleteItemMutation",
+    "name": "useShoppingListDeleteItemMutation",
     "selections": (v1/*: any*/)
   },
   "params": {
-    "cacheID": "bf6262a8e836263050f62721f7478948",
+    "cacheID": "a7e814a62994dbd677c7c71d3183d418",
     "id": null,
     "metadata": {},
-    "name": "ShoppingListScreenDeleteItemMutation",
+    "name": "useShoppingListDeleteItemMutation",
     "operationKind": "mutation",
-    "text": "mutation ShoppingListScreenDeleteItemMutation(\n  $shoppingItemID: ID!\n) {\n  deleteItemFromShoppingList(shoppingItemID: $shoppingItemID)\n}\n"
+    "text": "mutation useShoppingListDeleteItemMutation(\n  $shoppingItemID: ID!\n) {\n  deleteItemFromShoppingList(shoppingItemID: $shoppingItemID)\n}\n"
   }
 };
 })();
 
-(node as any).hash = "9f591a37356f6c12e644b68904b649ce";
+(node as any).hash = "41679b5abaf84f0f034492940ea7f04c";
 
 export default node;

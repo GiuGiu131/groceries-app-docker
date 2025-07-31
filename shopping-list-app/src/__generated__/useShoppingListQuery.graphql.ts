@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<79765fc46fda504a0ecd54ff8a51f894>>
+ * @generated SignedSource<<b7afdcf667dcb154c35b1e89e4107f13>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -9,8 +9,8 @@
 // @ts-nocheck
 
 import { ConcreteRequest } from 'relay-runtime';
-export type ShoppingListScreenQuery$variables = Record<PropertyKey, never>;
-export type ShoppingListScreenQuery$data = {
+export type useShoppingListQuery$variables = Record<PropertyKey, never>;
+export type useShoppingListQuery$data = {
   readonly availableItems: ReadonlyArray<{
     readonly category: string | null | undefined;
     readonly id: string;
@@ -29,9 +29,9 @@ export type ShoppingListScreenQuery$data = {
     readonly totalPrice: number | null | undefined;
   }> | null | undefined;
 };
-export type ShoppingListScreenQuery = {
-  response: ShoppingListScreenQuery$data;
-  variables: ShoppingListScreenQuery$variables;
+export type useShoppingListQuery = {
+  response: useShoppingListQuery$data;
+  variables: useShoppingListQuery$variables;
 };
 
 const node: ConcreteRequest = (function(){
@@ -119,7 +119,7 @@ return {
     "argumentDefinitions": [],
     "kind": "Fragment",
     "metadata": null,
-    "name": "ShoppingListScreenQuery",
+    "name": "useShoppingListQuery",
     "selections": (v2/*: any*/),
     "type": "Query",
     "abstractKey": null
@@ -128,20 +128,20 @@ return {
   "operation": {
     "argumentDefinitions": [],
     "kind": "Operation",
-    "name": "ShoppingListScreenQuery",
+    "name": "useShoppingListQuery",
     "selections": (v2/*: any*/)
   },
   "params": {
-    "cacheID": "7c97ea9205db0f6bb904aaeb4dd46c8c",
+    "cacheID": "66635dad31907499c1c56b51065df3ee",
     "id": null,
     "metadata": {},
-    "name": "ShoppingListScreenQuery",
+    "name": "useShoppingListQuery",
     "operationKind": "query",
-    "text": "query ShoppingListScreenQuery {\n  shoppingItems {\n    id\n    quantity\n    totalPrice\n    inventoryItem {\n      id\n      name\n      price\n      category\n    }\n  }\n  availableItems {\n    id\n    name\n    price\n    category\n  }\n}\n"
+    "text": "query useShoppingListQuery {\n  shoppingItems {\n    id\n    quantity\n    totalPrice\n    inventoryItem {\n      id\n      name\n      price\n      category\n    }\n  }\n  availableItems {\n    id\n    name\n    price\n    category\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "c80fd5be7063525daf61a5a448973d5c";
+(node as any).hash = "dda32d164e86aba74e80e3dc4a531fb4";
 
 export default node;
