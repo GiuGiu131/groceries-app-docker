@@ -20,6 +20,7 @@ const IngredientsList: React.FC<IngredientsListProps> = ({ selectedItemId, setSe
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [quantity, setQuantity] = useState("1");
   const [searchQuery, setSearchQuery] = useState("");
+  const [addedItemIds, setAddedItemIds] = useState<Set<string>>(new Set());
 
   const data = useLazyLoadQuery<IngredientsListQuery>(
     graphql`
@@ -58,16 +59,25 @@ const IngredientsList: React.FC<IngredientsListProps> = ({ selectedItemId, setSe
   useEffect(() => {
     if (categories.length && selectedCategory === null) {
       setSelectedCategory(categories[0].id);
-      // if (categories[0].items.length) setSelectedItemId(categories[0].items[0].id);
     }
   }, [categories]);
 
-  const items: AvailableItem[] = searchQuery.trim().length > 0 ? (data.availableItems ?? []).filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase())) : selectedCategory ? categoriesMap.get(selectedCategory) ?? [] : [];
+  const shoppingItemIds = new Set((shoppingData?.shoppingItems ?? []).map((si: any) => si.inventoryItem.id));
+
+  const rawItems = searchQuery.trim().length > 0 ? (data.availableItems ?? []).filter(item => item.name.toLowerCase().includes(searchQuery.toLowerCase())) : selectedCategory ? categoriesMap.get(selectedCategory) ?? [] : [];
+
+  const items: (AvailableItem & { isAdded: boolean })[] = rawItems.map(item => ({
+    ...item,
+    isAdded: shoppingItemIds.has(item.id) || addedItemIds.has(item.id)
+  }));
 
   const handleAdd = () => {
     if (!selectedItemId) return;
     const qty = parseInt(quantity, 10);
     if (isNaN(qty) || qty <= 0) return;
+
+    setAddedItemIds(prev => new Set(prev).add(selectedItemId));
+
     addItem(selectedItemId, qty);
     setQuantity("1");
     setSelectedItemId(null);
@@ -124,7 +134,7 @@ const IngredientsList: React.FC<IngredientsListProps> = ({ selectedItemId, setSe
         />
         <CategoryList categories={categories} selectedCategory={selectedCategory} onSelect={handleSelectCategory} />
 
-        <IngredientsGrid items={items} selectedItemId={selectedItemId} shoppingItems={shoppingData?.shoppingItems ?? []} onSelect={handleSelectItem} />
+        <IngredientsGrid items={items} selectedItemId={selectedItemId} onSelect={handleSelectItem} />
 
         {selectedItemId && (
           <Animated.View style={[AddSectionContainerStyles.container, { bottom: keyboardHeight }]}>
