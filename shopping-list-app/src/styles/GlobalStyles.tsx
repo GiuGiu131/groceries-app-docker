@@ -445,3 +445,76 @@ export const TotalSectionStyles = StyleSheet.create({
     ...typography.fontWeights.bold
   }
 });
+
+export const AccountScreenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colours.colors.mainBgColor,
+    paddingHorizontal: sizing.paddings.paddingMd,
+    paddingTop: sizing.paddings.paddingLg
+  },
+  scrollContent: {
+    paddingBottom: sizing.margins.marginLg
+  },
+  profileSection: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colours.colors.contentBgColor,
+    padding: sizing.paddings.paddingLg,
+    borderRadius: 16,
+    marginBottom: sizing.margins.marginLg,
+    shadowColor: "#000",
+    shadowOpacity: 0.12,
+    shadowOffset: { width: 0, height: 6 },
+    shadowRadius: 12,
+    elevation: 8
+  },
+  profileImage: {
+    width: 90,
+    height: 90,
+    borderRadius: 45,
+    marginRight: sizing.margins.marginMd
+  },
+  profileName: {
+    fontSize: typography.fontSizes.fontSizeLg,
+    fontWeight: typography.fontWeights.bold as any, //  TS complains
+    color: colours.colors.primary,
+    marginBottom: 6
+  },
+  profileEmail: {
+    fontSize: typography.fontSizes.fontSizeBase,
+    color: colours.colors.tertiaryButtonColor
+  },
+  option: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colours.colors.contentBgColor,
+    paddingVertical: sizing.paddings.paddingMd,
+    paddingHorizontal: sizing.paddings.paddingLg,
+    borderRadius: 14,
+    marginBottom: sizing.margins.marginSm,
+    shadowColor: "#000",
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 3 },
+    shadowRadius: 6,
+    elevation: 4,
+    justifyContent: "space-between"
+  },
+  optionDanger: {
+    backgroundColor: "#FDECEA"
+  },
+  optionText: {
+    fontSize: typography.fontSizes.fontSizeBase,
+    ...typography.fontWeights.semibold,
+    color: colours.colors.primary
+  },
+  optionTextDanger: {
+    color: "#E53935"
+  },
+  optionIcon: {
+    marginLeft: sizing.margins.marginSm
+  },
+  divider: {
+    height: sizing.margins.marginMd
+  }
+});

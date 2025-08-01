@@ -1,9 +1,17 @@
 import React from "react";
-import { Text, TextProps } from "react-native";
+import { Text, TextProps, StyleProp, TextStyle } from "react-native";
 import { typography } from "../styles/variables";
 
-const CustomText: React.FC<TextProps> = props => {
-  return <Text {...props} style={[{ fontFamily: typography.fontFamilyBase }, props.style]} />;
+interface CustomTextProps extends TextProps {
+  style?: StyleProp<TextStyle>;
+}
+
+const CustomText: React.FC<CustomTextProps> = ({ style, children, ...rest }) => {
+  return (
+    <Text {...rest} style={[{ fontFamily: typography.fontFamilyBase }, style]}>
+      {children}
+    </Text>
+  );
 };
 
 export default CustomText;

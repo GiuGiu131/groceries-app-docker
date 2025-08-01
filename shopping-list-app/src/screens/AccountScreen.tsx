@@ -1,27 +1,54 @@
 import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
+import { View, ViewStyle, Text, TouchableOpacity, Image, ScrollView } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { AccountScreenStyles } from "../styles/GlobalStyles";
+import CustomText from "../components/CustomText";
+import { colours, sizing } from "../styles/variables";
 
-const AccountScreen = () => {
+const options = [{ title: "Account Info" }, { title: "Notifications" }, { title: "Help & Support" }, { title: "Logout", danger: true }];
+
+const profileSection: ViewStyle = {
+  flexDirection: "row",
+  alignItems: "center",
+  backgroundColor: colours.colors.secondaryBgColor,
+  padding: sizing.paddings.paddingLg,
+  borderRadius: 12,
+  marginBottom: sizing.margins.marginXl,
+  shadowColor: "#000",
+  shadowOpacity: 0.1,
+  shadowOffset: { width: 0, height: 4 },
+  shadowRadius: 10,
+  elevation: 5
+};
+
+const AccountScreen: React.FC = () => {
   const handlePress = (option: string) => {
     console.log(`Pressed ${option}`);
   };
 
   return (
-    <View style={styles.container}>
-      <ScrollView contentContainerStyle={{ paddingBottom: 40 }}>
-        <View style={styles.profileSection}>
-          <Image source={{ uri: "https://via.placeholder.com/80" }} style={styles.profileImage} />
+    <View style={AccountScreenStyles.container}>
+      <ScrollView contentContainerStyle={AccountScreenStyles.scrollContent}>
+        <View style={profileSection} accessible accessibilityLabel="User profile">
+          <Image source={{ uri: "https://placekitten.com/g/200/200" }} style={AccountScreenStyles.profileImage} accessibilityLabel="Profile image" />
           <View>
-            <Text style={styles.profileName}>John Doe</Text>
-            <Text style={styles.profileEmail}>john.doe@example.com</Text>
+            <CustomText style={AccountScreenStyles.profileName} accessibilityRole="header">
+              John Doe
+            </CustomText>
+
+            <CustomText style={AccountScreenStyles.profileEmail}>john.doe@example.com</CustomText>
           </View>
         </View>
 
-        {/* Settings Options */}
-        {[{ title: "Account Info" }, { title: "Notifications" }, { title: "Help & Support" }, { title: "Logout", danger: true }].map((item, index) => (
-          <TouchableOpacity key={index} style={[styles.option, item.danger && styles.optionDanger]} onPress={() => handlePress(item.title)}>
-            <Text style={[styles.optionText, item.danger && styles.optionTextDanger]}>{item.title}</Text>
-          </TouchableOpacity>
+        {options.map(({ title, danger }, index) => (
+          <View key={title}>
+            <TouchableOpacity activeOpacity={0.6} style={[AccountScreenStyles.option, danger && AccountScreenStyles.optionDanger]} onPress={() => handlePress(title)} accessibilityRole="button" accessibilityState={{ disabled: false }} accessibilityHint={`Navigates to ${title} screen`}>
+              <Text style={[AccountScreenStyles.optionText, danger ? AccountScreenStyles.optionTextDanger : null]}>{title}</Text>
+              <Ionicons name="chevron-forward" size={20} color={danger ? "#E53935" : "#617D98"} style={AccountScreenStyles.optionIcon} accessibilityIgnoresInvertColors />
+            </TouchableOpacity>
+
+            {index < options.length - 1 && <View style={AccountScreenStyles.divider} />}
+          </View>
         ))}
       </ScrollView>
     </View>
@@ -29,70 +56,3 @@ const AccountScreen = () => {
 };
 
 export default AccountScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 40,
-    backgroundColor: "#FAF7EF"
-  },
-  header: {
-    fontSize: 28,
-    fontWeight: "700",
-    color: "#1C2E44",
-    marginBottom: 30
-  },
-  profileSection: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "#F5EFD9",
-    padding: 20,
-    borderRadius: 12,
-    marginBottom: 25,
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 3 },
-    shadowRadius: 8,
-    elevation: 4
-  },
-  profileImage: {
-    width: 80,
-    height: 80,
-    borderRadius: 40,
-    marginRight: 20
-  },
-  profileName: {
-    fontSize: 22,
-    fontWeight: "700",
-    color: "#1C2E44"
-  },
-  profileEmail: {
-    fontSize: 14,
-    color: "#617D98",
-    marginTop: 6
-  },
-  option: {
-    backgroundColor: "#FFF",
-    paddingVertical: 18,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    marginBottom: 15,
-    shadowColor: "#000",
-    shadowOpacity: 0.05,
-    shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 5,
-    elevation: 2
-  },
-  optionDanger: {
-    backgroundColor: "#FDECEA"
-  },
-  optionText: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#1C2E44"
-  },
-  optionTextDanger: {
-    color: "#E53935"
-  }
-});
