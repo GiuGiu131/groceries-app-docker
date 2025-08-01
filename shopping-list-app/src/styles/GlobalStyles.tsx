@@ -219,6 +219,43 @@ export const SearchBarStyles = StyleSheet.create({
   }
 });
 
+export const ShoppingListScreenStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: sizing.paddings.paddingLg,
+    backgroundColor: colours.colors.mainBgColor
+  },
+  emptyWrapper: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  emptyImage: {
+    width: 200,
+    height: 200,
+    marginBottom: sizing.margins.marginLg
+  },
+  emptyText: {
+    fontSize: typography.fontSizes.fontSizeLg,
+    color: colours.colors.primary,
+    ...typography.fontWeights.semibold
+  },
+  totalContainer: {
+    padding: sizing.paddings.paddingMd,
+    borderTopWidth: 1,
+    borderColor: "#EEE",
+    backgroundColor: colours.colors.mainBgColor,
+    alignItems: "center",
+    marginVertical: sizing.margins.marginLg,
+    borderRadius: sizing.borderRadius.borderRadiusBase
+  },
+  totalText: {
+    fontSize: typography.fontSizes.fontSizeLg,
+    ...typography.fontWeights.semibold,
+    color: colours.colors.primary
+  }
+});
+
 export const ShoppingListStyles = StyleSheet.create({
   card: {
     flexDirection: "row",
@@ -336,6 +373,38 @@ export const ShoppingListStyles = StyleSheet.create({
     borderRadius: 6
   },
   promptBtnText: {
+    color: colours.colors.primary,
+    ...typography.fontWeights.bold
+  }
+});
+export const TotalSectionStyles = StyleSheet.create({
+  container: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    backgroundColor: colours.colors.mainBgColor,
+    paddingVertical: sizing.paddings.paddingMd,
+    paddingHorizontal: sizing.paddings.paddingXl,
+    borderTopWidth: 1,
+    borderColor: "#ddd",
+    borderTopLeftRadius: 12,
+    borderTopRightRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -3 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 6,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between"
+  },
+  label: {
+    fontSize: typography.fontSizes.fontSizeLg,
+    color: colours.colors.primary,
+    ...typography.fontWeights.semibold
+  },
+  totalValue: {
+    fontSize: typography.fontSizes.fontSizeLg,
     color: colours.colors.primary,
     ...typography.fontWeights.bold
   }
