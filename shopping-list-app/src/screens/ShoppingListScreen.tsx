@@ -1,6 +1,6 @@
 // screens/ShoppingListScreen.tsx
 import React from "react";
-import { View, Text, FlatList, ImageBackground, StyleSheet } from "react-native";
+import { View, Text, FlatList, ImageBackground } from "react-native";
 import { useShoppingList } from "../hooks/useShoppingList";
 import ShoppingListItem from "../components/shopping/ShoppingListItem";
 import EmptyListBg from "../../assets/empty-shopping-list-bg.png";
@@ -62,35 +62,3 @@ const ShoppingListScreen = () => {
 };
 
 export default ShoppingListScreen;
-
-const styles = StyleSheet.create({
-  container: { flex: 1, padding: 20, backgroundColor: "#FAF7EF" },
-  emptyWrapper: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  emptyImage: {
-    width: 200,
-    height: 200,
-    marginBottom: 20
-  },
-  emptyText: {
-    fontSize: 18,
-    color: "#0D2A4D",
-    fontWeight: "600"
-  },
-  totalContainer: {
-    padding: 15,
-    borderTopWidth: 1,
-    borderColor: "#EEE",
-    backgroundColor: "#FAF7EF",
-    alignItems: "center",
-    marginVertical: 15,
-    borderRadius: 12
-  },
-  totalText: {
-    fontSize: 18,
-    fontWeight: "600"
-  }
-});
