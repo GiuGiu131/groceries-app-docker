@@ -256,7 +256,7 @@ export const ShoppingListScreenStyles = StyleSheet.create({
   }
 });
 
-export const ShoppingListStyles = StyleSheet.create({
+export const ShoppingListItemStyles = StyleSheet.create({
   card: {
     flexDirection: "row",
     alignItems: "center",
@@ -311,7 +311,6 @@ export const ShoppingListStyles = StyleSheet.create({
     color: colours.colors.primary
   },
   qtyText: {
-    // fontFamily: typography.fontFamilyBase,
     fontSize: typography.fontSizes.fontSizeBase,
     ...typography.fontWeights.bold,
     color: colours.colors.primary,
@@ -334,7 +333,11 @@ export const ShoppingListStyles = StyleSheet.create({
     borderRadius: 6,
     zIndex: 10
   },
-  removeText: { color: colours.colors.primary, fontSize: typography.fontSizes.fontSizeBase, ...typography.fontWeights.bold },
+  removeText: {
+    color: colours.colors.primary,
+    fontSize: typography.fontSizes.fontSizeBase,
+    ...typography.fontWeights.bold
+  },
 
   // Overlay styles
   overlay: {
@@ -359,7 +362,11 @@ export const ShoppingListStyles = StyleSheet.create({
     marginBottom: sizing.margins.marginXs,
     textAlign: "center"
   },
-  promptButtons: { flexDirection: "row", justifyContent: "space-around", width: "100%" },
+  promptButtons: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    width: "100%"
+  },
   promptBtnConfirm: {
     backgroundColor: colours.colors.danger,
     paddingVertical: sizing.paddings.paddingSm,
@@ -375,6 +382,35 @@ export const ShoppingListStyles = StyleSheet.create({
   promptBtnText: {
     color: colours.colors.primary,
     ...typography.fontWeights.bold
+  },
+
+  // Popup box for max quantity limit
+  popupBox: {
+    backgroundColor: colours.colors.mainBgColor,
+    padding: sizing.paddings.paddingLg,
+    borderRadius: 12,
+    alignItems: "center",
+    width: "80%",
+    borderWidth: 1,
+    borderColor: colours.colors.alert
+  },
+  popupText: {
+    fontSize: typography.fontSizes.fontSizeBase,
+    ...typography.fontWeights.bold,
+    color: colours.colors.primary,
+    marginBottom: sizing.margins.marginMd,
+    textAlign: "center"
+  },
+  popupCloseBtn: {
+    backgroundColor: colours.colors.tertiaryButtonColor,
+    paddingVertical: sizing.paddings.paddingSm,
+    paddingHorizontal: sizing.paddings.paddingLg,
+    borderRadius: 8
+  },
+  popupCloseText: {
+    color: colours.colors.primary,
+    fontWeight: typography.fontWeights.bold.fontWeight || "bold",
+    fontSize: typography.fontSizes.fontSizeBase
   }
 });
 export const TotalSectionStyles = StyleSheet.create({
