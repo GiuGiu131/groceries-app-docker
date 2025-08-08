@@ -1,12 +1,12 @@
 import { graphql, useLazyLoadQuery, useMutation } from "react-relay";
 import { useCallback } from "react";
-import type { ShoppingListQuery } from "../__generated__/ShoppingListQuery.graphql";
+import type { useShoppingListQuery } from "../__generated__/useShoppingListQuery.graphql";
 import type { useShoppingListAddItemMutation } from "../__generated__/useShoppingListAddItemMutation.graphql";
 import type { useShoppingListUpdateItemMutation } from "../__generated__/useShoppingListUpdateItemMutation.graphql";
 import type { useShoppingListDeleteItemMutation } from "../__generated__/useShoppingListDeleteItemMutation.graphql";
 
 export const useShoppingList = () => {
-  const data = useLazyLoadQuery<ShoppingListQuery>(
+  const data = useLazyLoadQuery<useShoppingListQuery>(
     graphql`
       query useShoppingListQuery {
         shoppingItems {
